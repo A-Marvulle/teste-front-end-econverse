@@ -1,0 +1,86 @@
+@use "../../styles/var" as *;
+
+.header__dif {
+    padding-block: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    @media (max-width: $md) {
+        text-align: center;
+        flex-direction: column;
+    }
+    p {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: $grey;
+        font-weight: 500;
+
+        strong {
+            color: $blue;
+        }
+
+        img {
+            height: 20px;
+            width: 20px;
+            object-fit: contain;
+        }
+    }
+}
+
+.header__menu {
+    padding-block: 1rem;
+}
+
+.header__middle {
+    display: flex;
+    padding-block: 1rem;
+    border-block: 1px solid #dedede;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    @media (max-width: $md) {
+        flex-direction: column;
+    }
+
+    &-logo {
+        height: 100%;
+        width: 150px;
+        object-fit: contain;
+    }
+
+    .header__search {
+        flex-grow: 1;
+        position: relative;
+        label,
+        span {
+            display: none;
+        }
+        input {
+            width: 100%;
+            background: #f6f5f2;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 0;
+            &:placeholder {
+                font-family: inherit;
+            }
+        }
+        button {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .header__icons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        span {
+            display: none;
+        }
+    }
+}

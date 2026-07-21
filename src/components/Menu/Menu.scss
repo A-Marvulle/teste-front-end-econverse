@@ -1,30 +1,155 @@
 @use "../../styles/var" as *;
+@use "../../styles/mixins" as *;
 
 .menu {
     &__title {
         margin-bottom: 0.5rem;
     }
 
-    &__vertical &__list {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        gap: 1rem;
-    }
-
     &__list {
+        display: flex;
         margin: 0;
         padding: 0;
         list-style: none;
-        li {width: 100%;}
+
+        li {
+            width: 100%;
+        }
+    }
+
+    &__horizontal &__list {
+        flex-direction: row;
+        justify-content: space-around;
+        font-size: 12px;
+        text-align: center;
+        text-transform: uppercase;
+
+        a {
+            font-weight: 600;
+            color: $grey;
+
+            &:hover,
+            &:focus-visible {
+                opacity: 1;
+                color: $grey-dark;
+            }
+
+            &.active {
+                color: $blue;
+
+                &:hover,
+                &:focus-visible {
+                    color: $grey-dark;
+                }
+            }
+        }
+    }
+
+    &__vertical &__list {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
     }
 
     a {
         color: inherit;
         text-decoration: none;
-        &:hover, &:focus-visible {
-            opacity: .22;
-        }
         text-align: inherit;
+
+        &:hover,
+        &:focus-visible {
+            opacity: 0.22;
+        }
+    }
+
+    &__toggle {
+        display: none;
+    }
+}
+
+@media (max-width: $md) {
+    .menu {
+        position: relative;
+
+        &__toggle {
+            @include btn-base;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+
+            width: 42px;
+            height: 42px;
+            margin: auto;
+
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 20;
+
+            span {
+                width: 24px;
+                height: 2px;
+                background: $grey-dark;
+                border-radius: 999px;
+
+                transition:
+                    transform 0.3s ease,
+                    opacity 0.25s ease,
+                    background-color 0.3s ease;
+            }
+
+            &.open {
+                span:nth-child(1) {
+                    transform: translateY(7px) rotate(45deg);
+                }
+
+                span:nth-child(2) {
+                    opacity: 0;
+                }
+
+                span:nth-child(3) {
+                    transform: translateY(-7px) rotate(-45deg);
+                }
+            }
+        }
+
+        &__collapsible {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transform: translateY(-10px);
+
+            transition:
+                max-height 0.35s ease,
+                opacity 0.3s ease,
+                transform 0.35s ease;
+
+            pointer-events: none;
+        }
+
+        &__collapsible.open {
+            max-height: 500px;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        &__horizontal &__list {
+            flex-direction: column;
+            align-items: center;
+            margin-top: 1rem;
+            gap: 1rem;
+        }
+
+        &__vertical &__list {
+            margin-top: 1rem;
+        }
     }
 }
