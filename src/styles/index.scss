@@ -114,3 +114,13 @@ a {
         outline-offset: 2px;
     }
 }
+.btn__blue {
+    @include btn-base;
+    background: $blue;
+    color: $white;
+
+    &:focus-visible {
+        outline: 2px solid $blue;
+        outline-offset: 2px;
+    }
+}

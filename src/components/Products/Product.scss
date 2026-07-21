@@ -1,0 +1,128 @@
+@use "../../styles/var" as *;
+
+.prod__related {
+    padding-block: 2rem;
+    &-title {
+        position: relative;
+        text-align: center;
+
+        @media (min-width: $xl) {
+            &:after,
+            &:before {
+                content: "";
+                position: absolute;
+                max-width: 360px;
+                width: 100%;
+                height: 1px;
+                background: #dedede;
+                top: 20px;
+            }
+
+            &:after {
+                right: 5%;
+            }
+            &:before {
+                left: 5%;
+            }
+        }
+
+        h2 {
+            color: $blue;
+            font-size: 30;
+            font-weight: 600;
+        }
+    }
+}
+
+.card__prod {
+    width: 280px;
+    min-height: 390px;
+    padding: 1rem;
+    border-radius: 12px;
+    background: $white;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.25s ease;
+    position: relative;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    &-img {
+        width: 100%;
+        height: 210px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+    }
+
+    &-content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        &-name {
+            font-size: 16px;
+            font-weight: 400;
+            color: $grey-dark;
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
+
+            display: -webkit-box;
+            -webkit--orient: vertical;
+            overflow: hidden;
+        }
+
+        &-priceOg {
+            font-size: 14px;
+            color: $grey;
+            text-decoration: line-through;
+            margin-bottom: 0.2rem;
+        }
+
+        &-priceDesc {
+            font-size: 34px;
+            font-weight: 700;
+            color: $grey-dark;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+
+        &-priceQuota {
+            font-size: 13px;
+            color: $grey-dark;
+            margin-bottom: 0.5rem;
+        }
+
+        &-transport {
+            font-size: 14px;
+            color: $blue;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        button {
+            margin: auto;
+
+            &:after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                inset: 0;
+            }
+        }
+
+    }
+}
