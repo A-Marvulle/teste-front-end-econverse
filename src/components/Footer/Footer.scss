@@ -1,0 +1,67 @@
+@use "../../styles/var" as *;
+
+.footer {
+    .content {
+        padding-block: 42px;
+        background: #f4f4f4;
+    }
+
+    .border {
+        @media (min-width: $lg) {
+            border-right: 1px solid rgba(40, 40, 40, 0.18);
+            padding-right: 2rem;
+        }
+    }
+
+    &__social {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-block: 2rem;
+
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover,
+            &:focus-visible,
+            &:active {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    &__menu-flex {
+        gap: 100px;
+        justify-content: space-around;
+        color: #222;
+        @media (min-width: $lg) {
+            padding-left: 2rem;
+        }
+    }
+
+    @media (max-width: $md) {
+        text-align: center;
+        &__social,
+        &__menu-flex {
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    .copy {
+        padding: 1rem 0;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            margin-inline-start: 5px;
+
+            &:hover,
+            &:focus-visible,
+            &:active {
+                opacity: 0.2;
+            }
+        }
+    }
+}
