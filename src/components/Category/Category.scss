@@ -1,0 +1,50 @@
+@use "../../styles/var" as *;
+.category {
+    padding: 2rem;
+    .card__category-list {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .card__category {
+        height: 120px;
+        width: 120px;
+        &-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            &-icon {
+                display: flex;
+                background: #f0f0f0;
+                justify-content: center;
+                align-items: center;
+                padding: 1rem;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+                border-radius: 8px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+            &-title {
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+
+
+    }
+
+    .card__category-active {
+        color: $blue;
+        .card__category-content-icon {
+            background: $white;
+        }
+    }
+}
