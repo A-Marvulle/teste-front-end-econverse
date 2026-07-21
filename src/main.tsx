@@ -4,13 +4,15 @@ import "./styles/index.scss";
 import Footer from "./components/Footer/Footer";
 import ProdRelated from "./components/Products/ProdRelated";
 import News from "./components/News/News";
+import Brands from "./components/Brands/Brands";
 
-// TODO: Conect to API and create type for product; Install Splide;
+// TODO: Conect to API and create type for product; Install Splide; Add splide to BRANDS
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <main>
       <ProdRelated />
+      <Brands />
       <News />
       <ProdRelated />
     </main>

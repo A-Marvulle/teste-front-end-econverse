@@ -1,0 +1,26 @@
+@use "../../styles/var" as *;
+
+.brands {
+    padding-block: 2rem;
+    .brands__title {
+        text-align: center;
+        color: $blue;
+        font-size: 30;
+        font-weight: 600;
+    }
+}
+
+.brands__card {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
