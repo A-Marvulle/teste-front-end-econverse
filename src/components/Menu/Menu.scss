@@ -1,0 +1,30 @@
+@use "../../styles/var" as *;
+
+.menu {
+    &__title {
+        margin-bottom: 0.5rem;
+    }
+
+    &__vertical &__list {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 1rem;
+    }
+
+    &__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        li {width: 100%;}
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+        &:hover, &:focus-visible {
+            opacity: .22;
+        }
+        text-align: inherit;
+    }
+}
