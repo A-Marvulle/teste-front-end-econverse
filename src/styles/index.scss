@@ -1,4 +1,6 @@
 @use "var" as *;
+@use "mixins" as *;
+
 *,
 *::before,
 *::after {
@@ -99,4 +101,16 @@ a {
 }
 .text-end {
     text-align: right;
+}
+
+/* BUTTONS */
+.btn__yellow {
+    @include btn-base;
+    background: $yellow;
+    color: #1a1a1a;
+
+    &:focus-visible {
+        outline: 2px solid $yellow;
+        outline-offset: 2px;
+    }
 }

@@ -1,0 +1,21 @@
+@use "./var" as *;
+
+@mixin btn-base {
+    padding: 12px 24px;
+    border-radius: 0.5rem;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 200px;
+    text-transform: uppercase;
+
+    &:hover {
+        opacity: 0.5;
+    }
+
+}
