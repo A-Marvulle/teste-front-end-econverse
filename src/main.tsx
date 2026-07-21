@@ -7,12 +7,14 @@ import News from "./components/News/News";
 import Brands from "./components/Brands/Brands";
 import Partners from "./components/Partners/Partners";
 import Category from "./components/Category/Category";
+import Hero from "./components/Hero/Hero";
 
 // TODO: Conect to API and create type for product; Install Splide; Add splide to BRANDS
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <main>
+      <Hero />
       <Category />
       <ProdRelated />
       <Partners />
