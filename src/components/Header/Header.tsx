@@ -4,6 +4,8 @@ import HeaderMiddle from "./HeaderMiddle";
 import shield from "../../assets/icons/shield.svg";
 import truck from "../../assets/icons/truck.svg";
 import credit from "../../assets/icons/credit-card.svg";
+import crown from "../../assets/icons/crown.svg";
+
 const mainMenu = {
   links: [
     { label: "Todas Categorias", href: "#" },
@@ -12,7 +14,7 @@ const mainMenu = {
     { label: "Moda", href: "#" },
     { label: "Lançamentos", href: "#" },
     { label: "Ofertas do dia", href: "#", active: true },
-    { label: "Assinatura", href: "#" },
+    { label: "Assinatura", href: "#", icon: crown },
   ],
 };
 

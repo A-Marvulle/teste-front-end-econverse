@@ -48,6 +48,10 @@ const Menu = ({
       >
         {menu.links.map((link) => (
           <li key={link.label}>
+            {link.icon && (
+              <img src={link.icon} title={link.label} alt={link.label} />
+            )}
+
             <a
               href={link.href}
               title={link.label}
