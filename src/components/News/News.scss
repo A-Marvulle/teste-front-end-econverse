@@ -1,0 +1,76 @@
+@use "../../styles/var" as *;
+
+.news {
+    background-color: $purple;
+    color: $white;
+    min-height: 162px;
+    padding-block: 2rem;
+    display: flex;
+    align-items: center;
+    @media (max-width: $md) {
+        text-align: center;
+    }
+
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        @media (max-width: $md) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__text {
+        margin-block: 1rem;
+    }
+
+    &__form {
+        display: flex;
+        align-items: start;
+        @media (max-width: $md) {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        &-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            @media (max-width: $md) {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .news__form-control {
+                width: 100%;
+                @media (min-width: $md) {
+                    width: 50%;
+                }
+                padding-inline: 5px;
+                label {
+                    display: none;
+                }
+                input {
+                    padding: 12px 24px;
+                    width: 100%;
+                    border-radius: 0.5rem;
+                    border: none;
+                    &:placeholder {
+                        font-family: inherit;
+                    }
+                }
+            }
+            .news__form-control-check {
+                padding-inline: 5px;
+                margin-block: 1rem;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5px;
+                width: 100%;
+            }
+        }
+    }
+}
