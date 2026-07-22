@@ -1,14 +1,17 @@
-import type { Product } from "../../types/products";
 import fallbackImg from "../../assets/images/fallback-cover.png";
+import type { Product } from "../../types/products";
+
 import "./Product.scss";
 
 interface ProdCardProps {
   product: Product;
+  onOpenModal: (product: Product) => void;
 }
 
-const ProdCard = ({ product }: ProdCardProps) => {
+const ProdCard = ({ product, onOpenModal }: ProdCardProps) => {
   const discount = 0.15;
   const priceDesc = product.price - product.price * discount;
+
   const portion = 6;
   const quota = priceDesc / portion;
 
@@ -34,6 +37,7 @@ const ProdCard = ({ product }: ProdCardProps) => {
             currency: "BRL",
           })}
         </p>
+
         <p className="card__prod-content-priceDesc">
           {priceDesc.toLocaleString("pt-BR", {
             style: "currency",
@@ -51,13 +55,9 @@ const ProdCard = ({ product }: ProdCardProps) => {
 
         <p className="card__prod-content-transport">Frete Grátis!</p>
 
-        {/*<h2>{product.name}</h2>
-        <p>{product.priceOg}</p>
-        <p>{product.priceDesc}</p>
-
-        */}
-
-        <button className="btn__blue">Comprar</button>
+        <button className="btn__blue" onClick={() => onOpenModal(product)}>
+          Comprar
+        </button>
       </div>
     </div>
   );

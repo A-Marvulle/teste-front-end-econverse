@@ -10,8 +10,6 @@ import Category from "./components/Category/Category";
 import Hero from "./components/Hero/Hero";
 import Header from "./components/Header/Header";
 
-// TODO: Conect to API and create type for product; Create Store; Create Modal
-
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Header />

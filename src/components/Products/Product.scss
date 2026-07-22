@@ -114,17 +114,16 @@
         }
 
         button {
-            margin-top: auto ;
+            margin-top: auto;
             margin-inline: auto;
 
             &:after {
-                content: '';
+                content: "";
                 position: absolute;
                 width: 100%;
                 height: 100%;
                 inset: 0;
             }
         }
-
     }
 }
