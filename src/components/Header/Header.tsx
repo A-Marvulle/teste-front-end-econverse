@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Menu from "../Menu/Menu";
 import "./Header.scss";
 import HeaderMiddle from "./HeaderMiddle";
@@ -19,6 +20,9 @@ const mainMenu = {
 };
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleOpen = () => setIsOpen((open) => !open);
+
   return (
     <header className="header">
       <div className="container">
@@ -55,10 +59,16 @@ const Header = () => {
           </p>
         </div>
         <div>
-          <HeaderMiddle />
+          <HeaderMiddle isOpen={isOpen} onToggle={toggleOpen} />
         </div>
         <div className="header__menu">
-          <Menu menu={mainMenu} orientation="horizontal" collapsible />
+          <Menu
+            menu={mainMenu}
+            orientation="horizontal"
+            collapsible
+            isOpen={isOpen}
+            onToggle={toggleOpen}
+          />
         </div>
       </div>
     </header>

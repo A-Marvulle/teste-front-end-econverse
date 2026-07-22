@@ -1,4 +1,5 @@
 @use "../../styles/var" as *;
+@use "../../styles/mixins" as *;
 .header {
     position: sticky;
     top: 0;
@@ -47,12 +48,100 @@
     gap: 1rem;
     @media (max-width: $md) {
         flex-direction: column;
+        align-items: stretch;
+    }
+
+    &-top {
+        display: contents;
+        @media (max-width: $md) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
     }
 
     &-logo {
         height: 100%;
         width: 150px;
         object-fit: contain;
+    }
+
+    .header__toggle {
+        display: none;
+
+        @media (max-width: $md) {
+            @include btn-base;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+
+            width: 42px;
+            height: 42px;
+
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 20;
+
+            span {
+                width: 24px;
+                height: 2px;
+                background: $grey-dark;
+                border-radius: 999px;
+
+                transition:
+                    transform 0.3s ease,
+                    opacity 0.25s ease,
+                    background-color 0.3s ease;
+            }
+
+            &.open {
+                span:nth-child(1) {
+                    transform: translateY(7px) rotate(45deg);
+                }
+
+                span:nth-child(2) {
+                    opacity: 0;
+                }
+
+                span:nth-child(3) {
+                    transform: translateY(-7px) rotate(-45deg);
+                }
+            }
+        }
+    }
+
+    .header__collapsible {
+        display: contents;
+
+        @media (max-width: $md) {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transform: translateY(-10px);
+
+            transition:
+                max-height 0.35s ease,
+                opacity 0.3s ease,
+                transform 0.35s ease;
+
+            pointer-events: none;
+
+            &.open {
+                max-height: 500px;
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: all;
+                margin-top: 1rem;
+            }
+        }
     }
 
     .header__search {
@@ -83,6 +172,7 @@
     .header__icons {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         gap: 1rem;
         span {
             display: none;
