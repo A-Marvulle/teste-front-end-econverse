@@ -1,75 +1,146 @@
-# React + TypeScript + Vite
+# Teste Alfredo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Stack
 
-Currently, two official plugins are available:
+- React
+- TypeScript
+- Splide.js
+- Scss
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Pré Requisitos
 
-## React Compiler
+- Git
+- Node
+- pnpm
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Sobre o Projeto
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+.
+├── index.html <- página inicial
+├── public
+│   ├── favicon.png
+│   ├── hero.png <- imagem para open graph
+│   └── icons.svg
+├── src
+│   ├── assets <- imagens do projeto
+│   │   ├── icons
+│   │   │   ├── box.svg
+│   │   │   ├── cart.svg
+│   │   │   ├── category
+│   │   │   │   ├── bebidas.svg
+│   │   │   │   ├── esportes.svg
+│   │   │   │   ├── ferramentas.svg
+│   │   │   │   ├── moda.svg
+│   │   │   │   ├── saude.svg
+│   │   │   │   ├── supermercado.svg
+│   │   │   │   └── tecnologia.svg
+│   │   │   ├── credit-card.svg
+│   │   │   ├── crown.svg
+│   │   │   ├── facebook.svg
+│   │   │   ├── heart.svg
+│   │   │   ├── instagram.svg
+│   │   │   ├── linkedin.svg
+│   │   │   ├── magnifying-glass.svg
+│   │   │   ├── shield.svg
+│   │   │   ├── truck.svg
+│   │   │   └── user.svg
+│   │   └── images
+│   │       ├── bg-partner.png
+│   │       ├── fallback-cover.png
+│   │       ├── hero.png
+│   │       └── logo.svg
+│   ├── components <- componentes do projeto
+│   │   ├── Brands
+│   │   │   ├── BrandsCard.tsx
+│   │   │   ├── BrandsList.tsx
+│   │   │   ├── Brands.scss
+│   │   │   └── Brands.tsx
+│   │   ├── Category
+│   │   │   ├── CategoryCard.tsx
+│   │   │   ├── CategoryList.tsx
+│   │   │   ├── Category.scss
+│   │   │   └── Category.tsx
+│   │   ├── Footer
+│   │   │   ├── Footer.scss
+│   │   │   └── Footer.tsx
+│   │   ├── Header
+│   │   │   ├── HeaderMiddle.tsx
+│   │   │   ├── Header.scss
+│   │   │   └── Header.tsx
+│   │   ├── Hero
+│   │   │   ├── Hero.scss
+│   │   │   └── Hero.tsx
+│   │   ├── Menu <- apenas renderiza a lista com o nav
+│   │   │   ├── Menu.scss
+│   │   │   └── Menu.tsx
+│   │   ├── News
+│   │   │   ├── NewsForm.tsx
+│   │   │   ├── News.scss
+│   │   │   └── News.tsx
+│   │   ├── Partners
+│   │   │   ├── PartnersCard.tsx
+│   │   │   ├── PartnersList.tsx
+│   │   │   ├── Partners.scss
+│   │   │   └── Partners.tsx
+│   │   └── Products
+│   │       ├── ProdCard.tsx
+│   │       ├── ProdList.tsx
+│   │       ├── ProdModal.scss
+│   │       ├── ProdModal.tsx
+│   │       ├── ProdRelated.tsx
+│   │       └── Product.scss
+│   ├── main.tsx <- junção dos componentes
+│   ├── services <- chamada para a API
+│   │   └── products.ts
+│   ├── styles <- estilizações gerais
+│   │   ├── index.scss
+│   │   ├── _mixins.scss
+│   │   └── _var.scss
+│   └── types <- tipagem de dados
+│       ├── category.ts
+│       ├── products.ts
+│       └── react-splide.d.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Objetivos Esperados
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Desenvolver a pagina em React e TypeScript conforme o layout. Para conseguir pegar os elementos do Figma, basta copiar o layout para sua conta que terá acesso de edição.
+- Montar a vitrine de produtos consumindo as informações dos produtos em json atraves desse Link.
+- Desenvolver a interação ao clicar em um produto conforme layout. A interação consiste em abrir um modal com as principais informações do produto presente no arquivo JSON conforme o produto que clicar.
+- Utilizar Pré-processador Sass, Less ou Stylus.
+- Respeitar o Layout pixel a pixel, tamanho das fontes, cores e botões.
+- Não Utilizar bibliotecas UI como Bootstrap, Foundation, ou afins.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Rodar Localmente
 
+### clone o projeto
+
+```bash
+    git clone https://github.com/A-Marvulle/teste-front-end-econverse.git
 ```
+
+### abra o projeto
+
+```bash
+    cd teste-front-end-econverse
+    git checkout release
+```
+
+### instale dependencias
+
+```bash
+    pnpm i
+```
+
+### rode o projeto
+
+```bash
+    pnpm run dev
+```
+
+O projeto por padrão abre na porta `:5173`.
+
+## Deploy Vercel
+
+link -- por vir
