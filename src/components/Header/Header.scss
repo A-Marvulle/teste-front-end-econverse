@@ -1,5 +1,10 @@
 @use "../../styles/var" as *;
-
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background: $white;
+}
 .header__dif {
     padding-block: 1rem;
     display: flex;

@@ -20,39 +20,46 @@ const mainMenu = {
 
 const Header = () => {
   return (
-    <header className="container header">
-      <div className="header__dif">
-        <p>
-          <img src={shield} alt="Shield Icon" title="Shield Icon" aria-hidden />
-          <span>
-            100% segura <strong>Compra</strong>
-          </span>
-        </p>
+    <header className="header">
+      <div className="container">
+        <div className="header__dif">
+          <p>
+            <img
+              src={shield}
+              alt="Shield Icon"
+              title="Shield Icon"
+              aria-hidden
+            />
+            <span>
+              100% segura <strong>Compra</strong>
+            </span>
+          </p>
 
-        <p>
-          <img src={truck} alt="Truck Icon" title="Truck Icon" aria-hidden />
-          <span>
-            <strong>Frete grátis</strong> acima de R$ 200
-          </span>
-        </p>
+          <p>
+            <img src={truck} alt="Truck Icon" title="Truck Icon" aria-hidden />
+            <span>
+              <strong>Frete grátis</strong> acima de R$ 200
+            </span>
+          </p>
 
-        <p>
-          <img
-            src={credit}
-            alt="Credit Card Icon"
-            title="Credit Card Icon"
-            aria-hidden
-          />
-          <span>
-            <strong>Parcele</strong> suas compras
-          </span>
-        </p>
-      </div>
-      <div>
-        <HeaderMiddle />
-      </div>
-      <div className="header__menu">
-        <Menu menu={mainMenu} orientation="horizontal" collapsible />
+          <p>
+            <img
+              src={credit}
+              alt="Credit Card Icon"
+              title="Credit Card Icon"
+              aria-hidden
+            />
+            <span>
+              <strong>Parcele</strong> suas compras
+            </span>
+          </p>
+        </div>
+        <div>
+          <HeaderMiddle />
+        </div>
+        <div className="header__menu">
+          <Menu menu={mainMenu} orientation="horizontal" collapsible />
+        </div>
       </div>
     </header>
   );
