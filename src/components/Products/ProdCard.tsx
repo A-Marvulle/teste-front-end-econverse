@@ -1,18 +1,24 @@
+import type { Product } from "../../types/products";
 import fallbackImg from "../../assets/images/fallback-cover.png";
 import "./Product.scss";
 
 interface ProdCardProps {
-  product: any;
+  product: Product;
 }
 
 const ProdCard = ({ product }: ProdCardProps) => {
+  const discount = 0.15;
+  const priceDesc = product.price - product.price * discount;
+  const portion = 6;
+  const quota = priceDesc / portion;
+
   return (
     <div className="card__prod">
       <div className="card__prod-img">
         <img
-          src={product.image || fallbackImg}
-          alt={product.name}
-          title={product.name}
+          src={product.photo || fallbackImg}
+          alt={product.productName}
+          title={product.productName}
           onError={(e) => {
             e.currentTarget.src = fallbackImg;
           }}
@@ -20,15 +26,38 @@ const ProdCard = ({ product }: ProdCardProps) => {
       </div>
 
       <div className="card__prod-content">
-        <h2 className="card__prod-content-name">{product.name}</h2>
-        <p className="card__prod-content-priceOg">{product.priceOg}</p>
-        <p className="card__prod-content-priceDesc">{product.priceDesc}</p>
-        <p className="card__prod-content-priceQuota">{product.priceQuota}</p>
-        <p className="card__prod-content-transport">{product.transport}</p>
+        <h2 className="card__prod-content-name">{product.productName}</h2>
 
-        <button className="btn__blue" title="Comprar">
-          Comprar
-        </button>
+        <p className="card__prod-content-priceOg">
+          {product.price.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </p>
+        <p className="card__prod-content-priceDesc">
+          {priceDesc.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </p>
+
+        <p className="card__prod-content-priceQuota">
+          Ou em até {portion}x de{" "}
+          {quota.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </p>
+
+        <p className="card__prod-content-transport">Frete Grátis!</p>
+
+        {/*<h2>{product.name}</h2>
+        <p>{product.priceOg}</p>
+        <p>{product.priceDesc}</p>
+
+        */}
+
+        <button className="btn__blue">Comprar</button>
       </div>
     </div>
   );

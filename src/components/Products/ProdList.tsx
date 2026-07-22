@@ -1,94 +1,45 @@
+import { useEffect, useState } from "react";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+
+import "@splidejs/react-splide/css";
+
 import ProdCard from "./ProdCard";
 import "./Product.scss";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
-const products = [
-  {
-    id: 1,
-    name: "Notebook Dell Inspiron",
-    image: "https://via.placeholder.com/200",
-    priceOg: "R$ 4.299,90",
-    priceDesc: "R$ 3.799,90",
-    priceQuota: "ou 10x de R$ 379,99",
-    transport: "Frete grátis",
-  },
-  {
-    id: 2,
-    name: "Mouse Gamer Logitech",
-    image: "https://via.placeholder.com/200",
-    priceOg: "R$ 299,90",
-    priceDesc: "R$ 199,90",
-    priceQuota: "ou 5x de R$ 39,98",
-    transport: "Frete grátis",
-  },
-  {
-    id: 3,
-    name: "Teclado Mecânico Redragon",
-    image: "https://via.placeholder.com/200",
-    priceOg: "R$ 399,90",
-    priceDesc: "R$ 299,90",
-    priceQuota: "ou 6x de R$ 49,98",
-    transport: "Frete grátis",
-  },
-  {
-    id: 4,
-    name: "Teclado Mecânico Redragon",
-    image: "https://via.placeholder.com/200",
-    priceOg: "R$ 399,90",
-    priceDesc: "R$ 299,90",
-    priceQuota: "ou 6x de R$ 49,98",
-    transport: "Frete grátis",
-  },
-  {
-    id: 5,
-    name: "Teclado Mecânico Redragon",
-    image: "https://via.placeholder.com/200",
-    priceOg: "R$ 399,90",
-    priceDesc: "R$ 299,90",
-    priceQuota: "ou 6x de R$ 49,98",
-    transport: "Frete grátis",
-  },
-  {
-    id: 6,
-    name: "Teclado Mecânico Redragon",
-    image: "https://via.placeholder.com/200",
-    priceOg: "R$ 399,90",
-    priceDesc: "R$ 299,90",
-    priceQuota: "ou 6x de R$ 49,98",
-    transport: "Frete grátis",
-  },
-  {
-    id: 7,
-    name: "Teclado Mecânico Redragon",
-    image: "https://via.placeholder.com/200",
-    priceOg: "R$ 399,90",
-    priceDesc: "R$ 299,90",
-    priceQuota: "ou 6x de R$ 49,98",
-    transport: "Frete grátis",
-  },
-  {
-    id: 8,
-    name: "Teclado Mecânico Redragon",
-    image: "https://via.placeholder.com/200",
-    priceOg: "R$ 399,90",
-    priceDesc: "R$ 299,90",
-    priceQuota: "ou 6x de R$ 49,98",
-    transport: "Frete grátis",
-  },
-];
+
+import { getProducts } from "../../services/products";
+import type { Product } from "../../types/products";
 
 const ProdList = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadProducts() {
+      try {
+        const data = await getProducts();
+        setProducts(data.products);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadProducts();
+  }, []);
+
+  if (loading) {
+    return <p>Carregando...</p>;
+  }
+
   return (
     <div className="wrapper-splide">
       <Splide
-        aria-label="Product"
+        aria-label="Products"
         options={{
           perPage: 4,
           perMove: 1,
           gap: "2rem",
-          width: "100%",
-          height: "100%",
-          arrows: true,
           pagination: false,
           breakpoints: {
             768: {
@@ -101,7 +52,7 @@ const ProdList = () => {
         }}
       >
         {products.map((product) => (
-          <SplideSlide key={product.id}>
+          <SplideSlide key={product.productName}>
             <ProdCard product={product} />
           </SplideSlide>
         ))}
