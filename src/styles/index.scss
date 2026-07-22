@@ -9,6 +9,20 @@
     padding: 0;
 }
 
+* {
+    scrollbar-width: thin;
+    scrollbar-color: $yellow #f0f0f0;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+::-webkit-scrollbar-thumb {
+    background: $yellow;
+}
+
 body {
     font-family: $font-primary;
 }
@@ -17,7 +31,9 @@ a {
     transition: all 0.3s ease;
 }
 
-.wrapper-splide .splide__track {padding-block: 2rem;}
+.wrapper-splide .splide__track {
+    padding-block: 2rem;
+}
 .container {
     width: 100%;
     margin-inline: auto;
