@@ -39,7 +39,6 @@ const ProdList = () => {
     <>
       <div className="wrapper-splide">
         <Splide
-          aria-label="Products"
           options={{
             perPage: 4,
             perMove: 1,

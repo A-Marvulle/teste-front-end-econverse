@@ -5,7 +5,7 @@ const NewsForm = () => {
     <form className="news__form">
       <div className="news__form-container">
         <div className="news__form-control">
-          <label>Digite seu nome</label>
+          <label htmlFor="nome">Digite seu nome</label>
           <input
             id="nome"
             type="text"
@@ -16,7 +16,7 @@ const NewsForm = () => {
         </div>
 
         <div className="news__form-control">
-          <label>Digite seu e-mail</label>
+          <label htmlFor="email">Digite seu e-mail</label>
           <input
             id="email"
             type="email"
@@ -28,7 +28,7 @@ const NewsForm = () => {
 
         <div className="news__form-control-check">
           <input id="accept-terms" type="checkbox" required></input>
-          <label>Aceito os termos e condições</label>
+          <label htmlFor="accept-terms">Aceito os termos e condições</label>
         </div>
       </div>
 
