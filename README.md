@@ -78,6 +78,9 @@
 │   │   │   ├── NewsForm.tsx
 │   │   │   ├── News.scss
 │   │   │   └── News.tsx
+│   │   ├── Organic
+│   │   │   ├── Organic.scss
+│   │   │   └── Organic.tsx
 │   │   ├── Partners
 │   │   │   ├── PartnersCard.tsx
 │   │   │   ├── PartnersList.tsx
@@ -117,26 +120,34 @@
 ### clone o projeto
 
 ```bash
-    git clone https://github.com/A-Marvulle/teste-front-end-econverse.git
+git clone https://github.com/A-Marvulle/teste-front-end-econverse.git
 ```
 
 ### abra o projeto
 
 ```bash
-    cd teste-front-end-econverse
-    git checkout release
+cd teste-front-end-econverse
+git checkout release
 ```
 
 ### instale dependencias
 
 ```bash
-    pnpm i
+pnpm i
+```
+
+### adicione a variável de ambiente
+
+Para consumir a API localmente é necessário a variável `VITE_API_URL`
+
+```bash
+cp .env.example .env
 ```
 
 ### rode o projeto
 
 ```bash
-    pnpm run dev
+pnpm run dev
 ```
 
 O projeto por padrão abre na porta `:5173`.
