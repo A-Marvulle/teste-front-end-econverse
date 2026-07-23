@@ -18,6 +18,8 @@
 ```bash
 .
 ├── index.html <- página inicial
+├── api
+│   └── products.ts <- proxy para Vercel
 ├── public
 │   ├── favicon.png
 │   ├── hero.png <- imagem para open graph
@@ -136,14 +138,6 @@ git checkout release
 pnpm i
 ```
 
-### adicione a variável de ambiente
-
-Para consumir a API localmente é necessário a variável `VITE_API_URL`
-
-```bash
-cp .env.example .env
-```
-
 ### rode o projeto
 
 ```bash
@@ -154,4 +148,4 @@ O projeto por padrão abre na porta `:5173`.
 
 ## Deploy Vercel
 
-link -- por vir
+[Link do Teste](https://teste-front-end-econverse-tau.vercel.app/)
