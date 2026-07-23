@@ -9,6 +9,7 @@ import Partners from "./components/Partners/Partners";
 import Category from "./components/Category/Category";
 import Hero from "./components/Hero/Hero";
 import Header from "./components/Header/Header";
+import Organic from "./components/Organic/Organic";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -16,7 +17,7 @@ createRoot(document.getElementById("root")!).render(
     <main>
       <Hero />
       <Category />
-      <ProdRelated />
+      <Organic />
       <Partners />
       <Brands />
       <News />
