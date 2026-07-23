@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  base: "/",
+  base: "/teste-front-end-econverse/",
   plugins: [react()],
   server: {
     proxy: {
