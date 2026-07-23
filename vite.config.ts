@@ -9,11 +9,8 @@ export default defineConfig({
       "/api": {
         target: "https://app.econverse.com.br",
         changeOrigin: true,
-        rewrite: (path) =>
-          path.replace(
-            "/api",
-            "/teste-front-end/junior/tecnologia/lista-produtos",
-          ),
+        rewrite: () =>
+          "/teste-front-end/junior/tecnologia/lista-produtos/produtos.json",
       },
     },
   },
